@@ -161,6 +161,7 @@ class _BillScreenState extends State<BillScreen> {
                   color: AppColors.secondary,
                   child: TextFormField(
                     controller: itemNameController,
+                    keyboardType: TextInputType.name,
                     decoration:  InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.only(left: 5),
