@@ -37,8 +37,8 @@ class _SummaryScreenState extends State<SummaryScreen> {
                 isPaid = value;
               });
             },
-            activeColor: Colors.green,
-            inactiveThumbColor: Colors.red,
+            activeColor: AppColors.green,
+            inactiveThumbColor: AppColors.red,
           ),
         ],
       ),
@@ -48,7 +48,7 @@ class _SummaryScreenState extends State<SummaryScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Customer Details',
+              AppStrings.customerDetails,
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   fontStyle: FontStyle.italic, color: AppColors.colorScheme),
             ),
@@ -84,7 +84,7 @@ class _SummaryScreenState extends State<SummaryScreen> {
             ),
             const SizedBox(height: 20),
             Text(
-              'Items',
+              AppStrings.items,
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   fontStyle: FontStyle.italic, color: AppColors.colorScheme),
             ),
@@ -129,7 +129,7 @@ class _SummaryScreenState extends State<SummaryScreen> {
                     'isPaid': isPaid, // Include toggle state
                   });
                 },
-                child: const Text('Save'),
+                child: const Text(AppStrings.save),
               ),
             ),
           ],
