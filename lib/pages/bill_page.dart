@@ -46,7 +46,7 @@ class _BillScreenState extends State<BillScreen> {
       unitPriceController.clear();
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please fill all item details!')),
+         SnackBar(content: Text(AppStrings.pleaseFillAllItemDetails)),
       );
     }
   }
@@ -55,7 +55,7 @@ class _BillScreenState extends State<BillScreen> {
   if (_formKey.currentState!.validate()) {
     if (itemList.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please add at least one item before saving!')),
+        const SnackBar(content: Text(AppStrings.plsAddAtLeastOneItem)),
       );
       return;
     }
@@ -98,7 +98,7 @@ class _BillScreenState extends State<BillScreen> {
             child: Column(
               children: [
                 Text(
-                  'Customer Details',
+                  AppStrings.customerDetails,
                   style: Theme.of(context)
                       .textTheme
                       .titleLarge!
@@ -110,14 +110,15 @@ class _BillScreenState extends State<BillScreen> {
                   color: AppColors.secondary,
                   child: TextFormField(
                     controller: nameController,
+                    keyboardType: TextInputType.name ,
                     decoration:  InputDecoration(
                       border: InputBorder.none ,
-                      hintText: 'Name',
+                      hintText: AppStrings.name,
                       contentPadding: EdgeInsets.only(left: 5)
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Name cannot be empty';
+                        return AppStrings.nameCanNotBeEmpty;
                       }
                       return null;
                     },
@@ -132,15 +133,15 @@ class _BillScreenState extends State<BillScreen> {
                     keyboardType: TextInputType.number,
                     decoration:  InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Contact Number',
+                      hintText: AppStrings.contactNumber,
                       contentPadding: EdgeInsets.only(left: 5)
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Contact number cannot be empty';
+                        return AppStrings.contactNoCanNotBeEmpty;
                       }
                       if (value.length != 10) {
-                        return 'Contact number must be 10 digits';
+                        return AppStrings.contactNoMustBe10Digit;
                       }
                       return null;
                     },
@@ -148,7 +149,7 @@ class _BillScreenState extends State<BillScreen> {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'Add Items',
+                  AppStrings.addItems,
                   style: Theme.of(context)
                       .textTheme
                       .titleLarge!
@@ -163,7 +164,7 @@ class _BillScreenState extends State<BillScreen> {
                     decoration:  InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.only(left: 5),
-                      hintText: 'Item Name',
+                      hintText: AppStrings.itemName,
                     ),
                   ),
                 ),
@@ -177,7 +178,7 @@ class _BillScreenState extends State<BillScreen> {
                     decoration:  InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.only(left: 5),
-                      hintText: 'Quantity',
+                      hintText: AppStrings.quantity,
                     ),
                   ),
                 ),
@@ -191,7 +192,7 @@ class _BillScreenState extends State<BillScreen> {
                     decoration:  InputDecoration(
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.only(left: 5),
-                      hintText: 'Unit Price',
+                      hintText: AppStrings.unitPrice,
                     ),
                   ),
                 ),
@@ -201,7 +202,7 @@ class _BillScreenState extends State<BillScreen> {
                     backgroundColor: WidgetStatePropertyAll(AppColors.colorScheme)
                   ),
                   onPressed: _addItem,
-                  child: const Text('Add'),
+                  child: const Text(AppStrings.add),
                 ),
                 const SizedBox(height: 50),
                 SizedBox(
@@ -209,7 +210,7 @@ class _BillScreenState extends State<BillScreen> {
                   child: ElevatedButton(
                   
                     onPressed: _navigateToSummaryScreen,
-                    child: const Text('Save'),
+                    child: const Text(AppStrings.save),
                   ),
                 ),
               ],
